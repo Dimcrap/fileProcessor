@@ -11,6 +11,5 @@ class scanner{
         std::map<std::string,std::vector<std::string>> listfiles();
 
     private:
-
         std::vector<std::string> paths;
 };
