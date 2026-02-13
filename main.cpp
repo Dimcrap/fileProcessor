@@ -1,18 +1,16 @@
 #include <iostream>
 #include <thread>
+#include "scanner.h"
 
-int mainNum=0;
-int applySum(int & number){
-    return number+=1;
-}
 
-void m_func(std::string str){
-    std::cout<<"test string outputing:"<<str;  
-}
+
 
 int main(){
+    std::string mainpath="/home/unred/Documents/loghub/loghub-master/";
+    scanner scan(mainpath);
     
-    auto m_thread= std::thread (applySum,std::ref (mainNum));
+    
+    /*auto m_thread= std::thread (applySum,std::ref (mainNum));
     
     //std::thread t(m_func,"this");
     if (m_thread.joinable()){
@@ -22,6 +20,6 @@ int main(){
     std::cout<<mainNum<<std::endl;
 
     decltype(m_thread) t_type;
-    std::cout<<" \n the thread value:" << typeid(t_type).name()<<std::endl ;
+    std::cout<<" \n the thread value:" << typeid(t_type).name()<<std::endl ;*/
     return 0;
 }
