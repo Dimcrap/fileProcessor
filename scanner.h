@@ -9,7 +9,6 @@ class scanner
     public:
         scanner(std::string dir);
         std::map<std::string,std::vector<std::string>> listfiles();
-
         
     private:
         std::string m_dir;
