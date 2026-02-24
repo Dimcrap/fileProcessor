@@ -44,19 +44,19 @@ void app::dir_wordcounter(){
     
     std::cout<<"\nenter directory path:\n";
     getline(std::cin,path);
+    std::filesystem::path filepath=path;
     
-    try
-    {
-        m_scanner=std::make_unique<scanner>();
-    }
-    catch(std::string errmsg)
-    {
-        std::cerr << errmsg << '\n';
-        MainMenu(true);
-        
-    }
+    while(!std::filesystem::exists(filepath) && 
+      !std::filesystem::is_directory(filepath)){
     
-    m_wordcounter = std::make_unique<wordcounter>();
+            std::cout << "direcotry isn't valid\n"
+            "enter directory path: (-1 main menu)\n" ;
+            getline(std::cin,path);
+            if(path=="1") MainMenu();
+            std::filesystem::path filepath=path;
+            MainMenu(true);
+    }
 
+    dir_proc=std::make_unique<dirprocessor>(filepath);
 
 }

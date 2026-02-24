@@ -1,27 +1,10 @@
-#include "scanner.h"
+#include "dirprocessor.h"
 
-scanner::scanner(std::string dir):m_dir(dir){
-    try{
-        definsubdirs(m_dir);
-    } catch(std::string errmsg){
-        throw errmsg;
-    }
+dirprocessor::dirprocessor(std::filesystem::path dirpath){
+    
 }
 
-void scanner::definsubdirs(std::string path){ 
-    std::filesystem::path inputP=path;
 
-    if(!std::filesystem::exists(path)&&std::filesystem::is_directory(path)){
-        paths.push_back(path);
-    }else{
-        std::cerr<<"\n******invalid directory path******\n";
-    }
-}
-
-std::map<std::string,std::vector<std::string>> scanner::listfiles(){
-std::map<std::string,std::vector<std::string>> result;
-return result;
-}
 
 
 /*

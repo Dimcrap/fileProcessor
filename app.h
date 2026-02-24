@@ -1,9 +1,10 @@
 #include <iostream>
 #include <memory>
-#include "scanner.h"
-#include "wordcounter.h"
+#include "dirprocessor.h"
+
 
 class app{
+
     public:
         app();
         void dir_wordcounter();
@@ -11,7 +12,6 @@ class app{
     private:
         void MainMenu(bool redirected=false);
         void countwords();
-        std::unique_ptr<wordcounter> m_wordcounter;
-        std::unique_ptr <scanner> m_scanner;
-
+        std::unique_ptr<dirprocessor> dir_proc;
+        
 };

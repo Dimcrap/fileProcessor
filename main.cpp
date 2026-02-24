@@ -1,13 +1,12 @@
 #include <iostream>
 #include <thread>
-#include "scanner.h"
+
 
 
 
 
 int main(){
     std::string mainpath="/home/unred/Documents/loghub/loghub-master/";
-    scanner scan(mainpath);
     
     
     /*auto m_thread= std::thread (applySum,std::ref (mainNum));
