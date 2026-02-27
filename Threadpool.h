@@ -17,8 +17,6 @@ class threadpool{
         std::mutex queue_mutex;
         std::condition_variable m_cv;
         bool stop;
-        
-
-
+    
 };
 

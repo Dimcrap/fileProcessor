@@ -4,21 +4,26 @@
 #include <map>
 #include <unordered_map>
 #include <memory>
+#include <fstream>
 #include "Threadpool.h"
 #include "allfilesWindow.h"
 
+
 class dirprocessor
 {
+
     public:
         dirprocessor(std::filesystem::path dirpath );     
         ~dirprocessor();
-        int countwords(std::string path);
         
     private:
         threadpool m_threadpool;
         std::vector<std::string> paths;
-        std::unordered_map<std::string,int> filse_wordscounts;
-        std::vector<std::string> files;
+        std::vector <std::filesystem::path> folders;
+        std::unordered_map<std::string,int> files_wordscounts;
+        std::vector<std::string> filespaths;
         allfilesWindow showingwindow;
+        void Definepaths(std::filesystem::path dirToCheck);
+        void CountFileWords(std::string path);
 
 }; 
