@@ -1,7 +1,7 @@
 #include "Threadpool.h"
 
 
-threadpool::threadpool(size_t thread_num= std::thread::hardware_concurrency()){
+threadpool::threadpool(size_t thread_num){
 
     for (size_t i=0;thread_num>i;i++){
         m_threads.emplace_back([this]{

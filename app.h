@@ -11,7 +11,6 @@ class app{
         
     private:
         void MainMenu(bool redirected=false);
-        void countwords();
         std::unique_ptr<dirprocessor> dir_proc;
         
         

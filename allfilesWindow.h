@@ -4,26 +4,17 @@
 #include <vector>
 
 
-class allfilesWindow{
-
-private:
-
-std::vector<file>files;
-Texture2D fileImgtexture;
-int filenum{1};
-float scrollYstate;
-Rectangle rect{8, 5, 792 , 495};
-
-public:
-
-allfilesWindow();
-void startWindow();
-~allfilesWindow();
-void addfile(std::string info);
-void handleMouseWheal();
-
+std::pair<float, float> findPos(int number){
+	int lastU{number%10};
+	int lastColumn{lastU==1||lastU==6?number+4:lastU==2||lastU==7?number+3:lastU==3||lastU==8?number+2:
+					lastU==4||lastU==9?number+1:number};
+	float xpos{lastU==1||lastU==6 ? 800 * 0.01 : lastU == 2 || lastU==7 ? 800 * 0.2
+			:lastU==3 || lastU==8 ? 800 * 0.39: lastU==4 || lastU==9 ? 800 * 0.579:
+			800 * 0.769};
+	float ypos{ ((500 * 0.11) * (lastColumn/5)) - 500 * 0.1 };
+	printf("new item num:%d lastcolumn:%d xpos:%f ypos:%f \n",number,lastColumn,xpos,ypos);
+	return {std::pair(xpos, ypos)};
 };
-
 
 struct file
 {
@@ -54,16 +45,23 @@ struct file
 	};
 };
 
+class allfilesWindow{
 
-std::pair<float, float> findPos(int number)
-{
-	int lastU{number%10};
-	int lastColumn{lastU==1||lastU==6?number+4:lastU==2||lastU==7?number+3:lastU==3||lastU==8?number+2:
-					lastU==4||lastU==9?number+1:number};
-	float xpos{lastU==1||lastU==6 ? 800 * 0.01 : lastU == 2 || lastU==7 ? 800 * 0.2
-			:lastU==3 || lastU==8 ? 800 * 0.39: lastU==4 || lastU==9 ? 800 * 0.579:
-			800 * 0.769};
-	float ypos{ ((500 * 0.11) * (lastColumn/5)) - 500 * 0.1 };
-	printf("new item num:%d lastcolumn:%d xpos:%f ypos:%f \n",number,lastColumn,xpos,ypos);
-	return {std::pair(xpos, ypos)};
-}
+private:
+
+std::vector<file>files;
+Texture2D fileImgtexture;
+int filenum{1};
+float scrollYstate;
+Rectangle rect{8, 5, 792 , 495};
+
+public:
+
+allfilesWindow();
+void startWindow();
+~allfilesWindow();
+void addfile(std::string info);
+void handleMouseWheal();
+
+};
+

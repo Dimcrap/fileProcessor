@@ -3,11 +3,11 @@
         
 app::app()
 {
-   MainMenu();
+   //MainMenu();
 
 }
 
-void app::MainMenu(bool redirected=false){
+void app::MainMenu(bool redirected){
     if(!redirected){
 
         int select;
@@ -20,7 +20,7 @@ void app::MainMenu(bool redirected=false){
         }
         
         if(select==1){
-            countwords();
+            dir_wordcounter();
         }
     }else{
         int select;
@@ -33,7 +33,7 @@ void app::MainMenu(bool redirected=false){
         }
         
         if(select==1){
-            countwords();
+            dir_wordcounter();
         }
     }
 }
