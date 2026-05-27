@@ -1,15 +1,26 @@
+#ifndef ALLFILESWINDOW_H
+#define ALLFILESWINDOW_H
+
+#include <iostream>
 #include "allfilesWindow.h"
 
+
+
 allfilesWindow::allfilesWindow(){
-    Image m_image=LoadImage("../file_img.png");
+    /*Image m_image=LoadImage("../file_img.png");
     ImageResize(&m_image,40,50);
     fileImgtexture=LoadTextureFromImage(m_image);
-    UnloadImage(m_image);
+    UnloadImage(m_image);*/
 }
 
 void allfilesWindow::startWindow(){
     
     InitWindow(800, 500, "Test Window");
+
+	Image m_image=LoadImage("../file_img.png");
+    ImageResize(&m_image,40,50);
+    fileImgtexture=LoadTextureFromImage(m_image);
+    UnloadImage(m_image);
 
     SetTargetFPS(60);
 		while (!WindowShouldClose())
@@ -30,7 +41,7 @@ void allfilesWindow::startWindow(){
 };
 
 void allfilesWindow::addfile(std::string info){
-    
+    std::cout<<"adding file details :"<<info<<std::endl;
     files.push_back(file(info,filenum));
     ++filenum;
 };
@@ -50,4 +61,4 @@ void allfilesWindow::handleMouseWheal()
 
 
 
-
+#endif

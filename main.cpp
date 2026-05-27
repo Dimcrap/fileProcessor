@@ -1,6 +1,6 @@
 #include <iostream>
 #include <thread>
-
+#include "app.h"
 
 
 
@@ -8,6 +8,8 @@
 int main(){
     std::string mainpath="/home/unred/Documents/loghub/loghub-master/";
     
+    app mainapp;
+    mainapp.MainMenu();
     
     /*auto m_thread= std::thread (applySum,std::ref (mainNum));
     

@@ -1,6 +1,8 @@
 #include <iostream>
 #include <memory>
 #include "dirprocessor.h"
+#include "allfilesWindow.h"
+
 
 
 class app{
@@ -8,10 +10,10 @@ class app{
     public:
         app();
         void dir_wordcounter();
+        void MainMenu(bool redirected=false);
         
     private:
-        void MainMenu(bool redirected=false);
         std::unique_ptr<dirprocessor> dir_proc;
-        
-        
+        allfilesWindow showingwindow;
+        void conductShowingWindow();
 };
